@@ -1,0 +1,166 @@
+\documentclass[
+  12pt,
+  oneside,
+  a4paper,
+  brazilian,
+  sumario=tradicional
+]{abntex2}
+
+% ----------------------------------------------------------
+% Pacotes básicos
+% ----------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[alf, lower]{abntex2cite}
+% --- PATCH CORRIGIDO (Funciona com qualquer versão) ---
+\makeatletter
+% O comando \@firstofone apenas devolve o argumento sem modificá-lo
+% Vamos forçar as duas possíveis grafias a serem "sem maiúsculo"
+\let\ABNTEXcitepartiauthorlastname\@firstofone
+\let\ABNTEXcitepartidauthorlastname\@firstofone
+\makeatother
+% --------------------------------------------------------
+\usepackage{babel}
+\usepackage{indentfirst}
+\usepackage{xcolor}
+\usepackage{threeparttable}
+
+
+
+% ----------------------------------------------------------
+% Remove cores dos links (hyperref carregado pelo abntex2)
+% ----------------------------------------------------------
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black
+}
+
+
+% ----------------------------------------------------------
+% Informações do trabalho
+% ----------------------------------------------------------
+\titulo{Reação fiscal e heterogeneidade contratual: a sustentabilidade da dívida dos estados brasileiros}
+\autor{Pedro Leite Tunholi}
+\local{Brasília}
+\data{2026}
+
+
+\preambulo{Trabalho de Conclusão de Curso apresentado
+ao Departamento de Ciências Econômicas da
+Universidade de Brasília como requisito parcial
+para obtenção do grau de Bacharel em
+Ciências Econômicas.
+
+\vspace{0.8cm}
+
+Orientador: Prof. Dr. Vander Mendes Lucas}
+% ----------------------------------------------------------
+% Capa personalizada
+% ----------------------------------------------------------
+\renewcommand{\imprimircapa}{%
+\begin{capa}%
+\center
+
+\vspace*{1.4cm}
+
+\includegraphics[width=2.8cm]{pretextuais/logo_unb.png}
+
+\vspace{0.35cm}
+
+{\bfseries UNIVERSIDADE DE BRASÍLIA\par}
+
+\vspace{0.25cm}
+
+{Faculdade de Administração, Contabilidade, Economia e Gestão de Políticas Públicas\par}
+
+\vspace{0.25cm}
+
+{Departamento de Ciências Econômicas\par}
+
+\vspace*{3.4cm}
+
+{\bfseries \MakeUppercase{\imprimirautor}\par}
+
+\vfill
+
+{\bfseries \MakeUppercase{\imprimirtitulo}\par}
+
+\vfill
+
+{\bfseries \imprimirlocal\par}
+{\bfseries \imprimirdata\par}
+
+\end{capa}
+}
+
+\usepackage{caption}
+\captionsetup[table]{position=above, labelsep=endash, justification=centering, singlelinecheck=false, font=small, labelfont=bf}
+
+\makeatletter
+\renewcommand{\fonte}[1]{%
+  \par\vspace{0.5\baselineskip}%
+  \noindent{\footnotesize Fonte: #1}%
+}
+\makeatother
+\newsavebox{\tabrefbox}
+
+
+% ----------------------------------------------------------
+% Início do documento
+% ----------------------------------------------------------
+\begin{document}
+
+% ----------------------------------------------------------
+% Elementos pré-textuais
+% ----------------------------------------------------------
+\pretextual
+
+\imprimircapa
+\imprimirfolhaderosto*
+
+\input{pretextuais/agradecimentos}
+
+\input{pretextuais/resumo}  
+
+\input{pretextuais/epigrafe}
+
+% Sumário
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+% ----------------------------------------------------------
+% Elementos textuais
+% ----------------------------------------------------------
+\textual
+
+\input{capitulos/01_introducao}
+
+\input{capitulos/02_literatura}
+
+\input{capitulos/03_contexto_institucional}
+
+\input{capitulos/04_dados_metodologia}
+
+\input{capitulos/05_resultados}
+
+\input{capitulos/06_conclusao}
+
+% ----------------------------------------------------------
+% Elementos pós-textuais
+% ----------------------------------------------------------
+\postextual
+
+\renewcommand{\bibname}{Referências bibliográficas}
+\bibliography{referencias}
+
+\end{document}

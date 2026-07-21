@@ -1,0 +1,31 @@
+# LaTeX auxiliares
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Backups
+*_OLD.*
+*_rascunho.*
+*~
+
+# Sessao R (fora do escopo deste repositorio)
+.RDataTmp
+.RData
+.Rhistory

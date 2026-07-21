@@ -1,0 +1,42 @@
+\vspace{14pt}
+
+\begin{table}[H]
+\centering
+\caption{Função de reação fiscal --- painel de estados brasileiros (2002--2023)}
+\label{tab:resultados}
+\footnotesize
+\renewcommand{\arraystretch}{1.0}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{Especificação principal} & \multicolumn{2}{c}{Robustez} \\
+\cmidrule(l){2-3} \cmidrule(l){4-5}
+ & \textbf{(I-A)} & \textbf{(I-B)} & \textbf{(I-C)} & \textbf{(I-D)} \\
+ & MQO-EF & 2SLS & 2SLS & 2SLS \\
+\midrule
+DCL/RCL ($t-1$) & $0,317^{***}$ & $0,644^{***}$ & $0,592^{***}$ & $0,696^{***}$ \\
+\color{gray!75} & \color{gray!75}(0,111) & \color{gray!75}(0,169) & \color{gray!75}(0,191) & \color{gray!75}(0,175) \\[3pt]
+DCL/RCL ($t-1$) $\times$ Teto & $-0,020^{**}$ & $-0,041^{***}$ & $-0,038^{***}$ & $-0,044^{***}$ \\
+\color{gray!75} & \color{gray!75}(0,008) & \color{gray!75}(0,012) & \color{gray!75}(0,013) & \color{gray!75}(0,012) \\[3pt]
+DCL/RCL ($t-1$) $\times$ Teto $\times$ Binding ($t-1$) & --- & --- & $0,0021^{*}$ & --- \\
+\color{gray!75} & & & \color{gray!75}(0,0012) & \\[3pt]
+Hiato do produto & $-0,084$ & $-0,009$ & $-0,011$ & $-0,046$ \\
+\color{gray!75} & \color{gray!75}(0,081) & \color{gray!75}(0,092) & \color{gray!75}(0,090) & \color{gray!75}(0,080) \\
+\midrule
+\textcolor{gray!70}{\textit{Observações}} & 525 & 500 & 500 & 484 \\
+\textcolor{gray!70}{\textit{$R^2$ within}} & 0,053 & --- & --- & --- \\
+\textcolor{gray!70}{\textit{F-stat 1º estágio}} & --- & 972 / 1130 & 653 / 759 / 69 & 1065 / 1242 \\
+\textcolor{gray!70}{\textit{Wu--Hausman ($p$)}} & --- & 0,0001 & 0,0001 & 0,0004 \\
+\bottomrule
+\end{tabular}
+
+\vspace{6pt}
+\begin{adjustwidth}{1.2cm}{1.2cm}
+\footnotesize
+\noindent
+Fonte: Elaboração própria a partir dos resultados da estimação. Erros-padrão clusterizados por estado entre parênteses. A coluna (I-D) reestima o Modelo (I-B) excluindo os estados-anos com pagamentos suspensos (Rio de Janeiro e Rio Grande do Sul a partir de 2017; Goiás a partir de 2022). $^{*}p < 0{,}10$; $^{**}p < 0{,}05$; $^{***}p < 0{,}01$.
+\end{adjustwidth}
+
+\end{table}
+
+\vspace{14pt}
