@@ -38,7 +38,7 @@ de 25 unidades federativas (2002–2023).
 │   └── apresentacao_defesa_tcc.pdf
 └── analise/
     ├── R/                     # funcoes auxiliares e setup
-    ├── scripts/               # pipeline numerado (01 a 09)
+    ├── scripts/               # pipeline (coleta, painel, Modelo I, robustez)
     ├── data/
     │   ├── raw/               # fontes brutas coletadas manualmente
     │   │                        (tetos contratuais, FINBRA historico,
@@ -100,11 +100,6 @@ descreve cada coluna de `panel_slim.csv` em detalhe.
 
 **Limitações conhecidas:**
 
-- `scripts/09_pre_trend.R` tem um
-  `setwd("C:/Users/pltun/tcc")` herdado do ambiente de
-  desenvolvimento original. Ajuste esse caminho (ou remova a
-  linha, rodando com `analise/` como working directory) antes
-  de executá-lo.
 - A reconstrução completa do painel a partir de `data/raw/`
   (`R/04_build_panel.R` → `scripts/build_panel_final.R` →
   `scripts/fix_yvar.R`) depende de arquivos intermediários
@@ -113,9 +108,8 @@ descreve cada coluna de `panel_slim.csv` em detalhe.
   repositório. `panel_slim.csv` já reflete o resultado final
   dessa etapa — os scripts a partir de `03_model1_2sls.R` rodam
   normalmente sobre ele. Pelo mesmo motivo,
-  `scripts/04b_model2_lsdvc_extended.R` e
-  `scripts/fig1_dcl_rcl_2000_2025.R` (que leem esses arquivos
-  intermediários diretamente) também não rodam sem essa etapa.
+  `scripts/fig1_dcl_rcl_2000_2025.R` (que lê esses arquivos
+  intermediários diretamente) também não roda sem essa etapa.
 
 ### Nota sobre correção de dados
 
