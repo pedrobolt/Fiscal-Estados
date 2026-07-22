@@ -29,3 +29,22 @@ Thumbs.db
 .RDataTmp
 .RData
 .Rhistory
+.Rproj.user/
+
+# Dados brutos re-obtiveis via API (nao versionar)
+analise/data/raw/siconfi/*.rds
+!analise/data/raw/siconfi/stn_servico_divida.rds
+!analise/data/raw/siconfi/stn_hist_*.rds
+analise/data/raw/ibge/
+analise/data/raw/bcb/
+
+# Mantido localmente por conveniencia, mas ja versionado em
+# manuscrito/capitulos/geral/ -- nao re-adicionar
+manuscrito/pretextuais/
+
+# Backups e exploratorios (nao deveriam existir na copia, mas por seguranca)
+*backup*
+*_BACKUP_*
+*_v2.csv
+*_CORRIGIDO.csv
+*_TESTE.R
