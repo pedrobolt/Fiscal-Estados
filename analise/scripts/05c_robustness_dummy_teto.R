@@ -8,7 +8,7 @@
 # MODELO A (baseline):  d_lag1 x teto contínuo   (teto = 12, 13 ou 15)
 # MODELO B (robustez):  d_lag1 x dummy_teto_alto  (1 se teto >= 15, 0 caso contrário)
 #
-# Entrada: data/processed/panel_final_v5.csv
+# Entrada: data/processed/panel_slim.csv
 # Saída  : output/tables/tabela_rob4_dummy_teto.tex  (LaTeX)
 #          output/tables/tabela_rob4_dummy_teto.html (HTML)
 # =============================================================================

@@ -84,21 +84,9 @@ em caixa alta).
 
 ## Pipeline de análise (analise/)
 
-    analise/
-    ├── R/                    # funções auxiliares e setup
-    ├── scripts/              # pipeline numerado (01 a 09)
-    ├── data/
-    │   ├── raw/              # fontes brutas coletadas manualmente
-    │   │                       (tetos contratuais, FINBRA
-    │                            histórico, STN Serviço da
-    │                            Dívida) — demais fontes (API
-    │                            SICONFI, IBGE, BCB) devem ser
-    │                            re-obtidas rodando os scripts
-    │                            de coleta
-    │   └── processed/
-    │       └── panel_slim.csv   # painel final utilizado na
-    │                              estimação
-    └── docs/                  # notas metodológicas
+Ver a árvore completa em "Estrutura do repositório", acima.
+O dicionário de variáveis (`analise/docs/dicionario_variaveis.txt`)
+descreve cada coluna de `panel_slim.csv` em detalhe.
 
 ### Reproduzindo a análise
 
@@ -112,26 +100,31 @@ em caixa alta).
 
 **Limitações conhecidas:**
 
-- `scripts/08_descriptive_stats.R` e `scripts/09_pre_trend.R`
-  têm um `setwd("C:/Users/pltun/tcc")` herdado do ambiente de
+- `scripts/09_pre_trend.R` tem um
+  `setwd("C:/Users/pltun/tcc")` herdado do ambiente de
   desenvolvimento original. Ajuste esse caminho (ou remova a
   linha, rodando com `analise/` como working directory) antes
-  de executá-los.
+  de executá-lo.
 - A reconstrução completa do painel a partir de `data/raw/`
   (`R/04_build_panel.R` → `scripts/build_panel_final.R` →
   `scripts/fix_yvar.R`) depende de arquivos intermediários
-  (`output/panel_estados_brasil.csv`, `output/panel_final_v4.csv`)
-  que não foram versionados neste repositório. `panel_slim.csv`
-  já reflete o resultado final dessa etapa — os scripts a
-  partir de `03_model1_2sls.R` rodam normalmente sobre ele.
+  (`output/panel_estados_brasil.csv`, `output/panel_final_v4.csv`,
+  `output/panel_final_v5.csv`) que não foram versionados neste
+  repositório. `panel_slim.csv` já reflete o resultado final
+  dessa etapa — os scripts a partir de `03_model1_2sls.R` rodam
+  normalmente sobre ele. Pelo mesmo motivo,
+  `scripts/04b_model2_lsdvc_extended.R` e
+  `scripts/fig1_dcl_rcl_2000_2025.R` (que leem esses arquivos
+  intermediários diretamente) também não rodam sem essa etapa.
 
 ### Nota sobre correção de dados
 
-O script `scripts/aplicar_correcao_encargos_9496.R` documenta
-uma correção aplicada à variável de encargos da dívida no
-período 2002–2014: a extração original utilizava
+A variável `encargos_sobre_rcl_ext` teve uma correção aplicada
+para o período 2002–2014: a extração original utilizava
 inadvertidamente a rubrica agregada "Dívida Total" do relatório
 de Serviço da Dívida da STN, quando o conceito relevante para
 o indicador de *binding* (Capítulo 5) é especificamente o
 serviço da dívida federalizada pela Lei nº 9.496/1997. A
-correção foi aplicada e está refletida em `panel_slim.csv`.
+correção foi aplicada e está refletida em `panel_slim.csv` —
+ver nota 2 em `analise/docs/dicionario_variaveis.txt` para o
+detalhamento da extração.

@@ -5,10 +5,10 @@
 # =============================================================================
 pkgs <- c("dplyr","readr","tidyr")
 suppressPackageStartupMessages(lapply(pkgs[pkgs %in% rownames(installed.packages())], library, character.only=TRUE))
-setwd("C:/Users/pltun/tcc")
 dir.create("output/tables", recursive=TRUE, showWarnings=FALSE)
 
-panel <- read_csv("data/processed/panel_slim.csv", show_col_types=FALSE)
+panel <- read_csv("data/processed/panel_slim.csv", show_col_types=FALSE) %>%
+  filter(year <= 2023)
 
 vars  <- c("dcl_sobre_rcl_ext","primario_sobre_rcl_ext","encargos_sobre_rcl_ext",
            "crescimento_pib_pct","yvar","teto")
@@ -89,10 +89,10 @@ build_html <- function() {
          '<title>Estat\u00edsticas Descritivas</title>',
          '<style>', css, '</style></head><body><div class="page">',
          '<p class="tbl-label">Tabela 2</p>',
-         '<p class="tbl-title">Estat\u00edsticas Descritivas &mdash; Painel de Estados Brasileiros (2002&ndash;2024)</p>',
+         '<p class="tbl-title">Estat\u00edsticas Descritivas &mdash; Painel de Estados Brasileiros (2002&ndash;2023)</p>',
 
          # Panel A
-         '<p class="panel-head">Painel A &mdash; Amostra completa (25 estados, 2002&ndash;2024)</p>',
+         '<p class="panel-head">Painel A &mdash; Amostra completa (25 estados, 2002&ndash;2023)</p>',
          '<table><thead><tr>',
          '<th>Vari\u00e1vel</th><th>N</th><th>M\u00e9dia</th><th>D.P.</th>',
          '<th>M\u00ednimo</th><th>Mediana</th><th>M\u00e1ximo</th></tr></thead><tbody>')
@@ -163,7 +163,7 @@ build_html <- function() {
          '<p class="note"><strong>Notas:</strong> D.P. = Desvio padr\u00e3o. ',
          'Painel B: teste-t de Welch de diferen\u00e7a de m\u00e9dias entre grupos de teto. ',
          'Painel C: correla\u00e7\u00f5es de Pearson; valores em <strong>negrito</strong> indicam |r| > 0,50. ',
-         'Amostra: 25 estados brasileiros (excl. AP e TO), 2002&ndash;2024. ',
+         'Amostra: 25 estados brasileiros (excl. AP e TO), 2002&ndash;2023. ',
          'Somente observa\u00e7\u00f5es com dados completos para todas as vari\u00e1veis.</p>',
          '</div></body></html>')
   paste(h, collapse="\n")
@@ -176,7 +176,7 @@ cat("  output/tables/estatisticas_descritivas.html\n")
 tex <- c(
   "% Tabela 2 — Estatísticas Descritivas",
   "\\begin{table}[htbp]",
-  "\\caption{Estatísticas Descritivas — Painel de Estados Brasileiros (2002--2024)}",
+  "\\caption{Estatísticas Descritivas — Painel de Estados Brasileiros (2002--2023)}",
   "\\label{tab:descritivas}",
   "\\small",
   "",
@@ -230,7 +230,7 @@ for (i in seq_len(nrow(cormat))) {
 }
 tex <- c(tex, "\\bottomrule", "\\end{tabular}",
   "\\begin{tablenotes}\\small",
-  "\\item Notas: D.P.~=~Desvio padrão. Painel~B: teste-t de Welch. Painel~C: Pearson; \\textbf{negrito} indica $|r|>0{,}50$. Amostra: 25 estados brasileiros (excl.~AP e TO), 2002--2024.",
+  "\\item Notas: D.P.~=~Desvio padrão. Painel~B: teste-t de Welch. Painel~C: Pearson; \\textbf{negrito} indica $|r|>0{,}50$. Amostra: 25 estados brasileiros (excl.~AP e TO), 2002--2023.",
   "\\end{tablenotes}",
   "\\end{table}")
 
