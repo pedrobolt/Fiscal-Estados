@@ -101,15 +101,15 @@ descreve cada coluna de `panel_slim.csv` em detalhe.
 **Limitações conhecidas:**
 
 - A reconstrução completa do painel a partir de `data/raw/`
-  (`R/04_build_panel.R` → `scripts/build_panel_final.R` →
-  `scripts/fix_yvar.R`) depende de arquivos intermediários
-  (`output/panel_estados_brasil.csv`, `output/panel_final_v4.csv`,
-  `output/panel_final_v5.csv`) que não foram versionados neste
-  repositório. `panel_slim.csv` já reflete o resultado final
-  dessa etapa — os scripts a partir de `03_model1_2sls.R` rodam
-  normalmente sobre ele. Pelo mesmo motivo,
-  `scripts/fig1_dcl_rcl_2000_2025.R` (que lê esses arquivos
-  intermediários diretamente) também não roda sem essa etapa.
+  depende de arquivos intermediários (`output/panel_estados_brasil.csv`,
+  `output/panel_final_v4.csv`, `output/panel_final_v5.csv`) e de
+  uma etapa de montagem de lags/interações que não foram
+  versionados neste repositório. `panel_slim.csv` já reflete o
+  resultado final dessa transformação — os scripts a partir de
+  `03_model1_2sls.R` rodam normalmente sobre ele. Pelo mesmo
+  motivo, `scripts/fig1_dcl_rcl_2000_2025.R` (que lê esses
+  arquivos intermediários diretamente) também não roda sem essa
+  etapa.
 
 ### Nota sobre correção de dados
 
