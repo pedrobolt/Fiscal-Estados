@@ -1,6 +1,6 @@
 =========================================================
 DICIONÁRIO DE VARIÁVEIS — data/processed/panel_slim.csv
-Painel: 25 UFs × 23 anos (2002–2024) = 575 obs
+Painel: 25 UFs × 22 anos 
 (excluindo AP e TO — sem contrato Lei 9.496/97)
 =========================================================
 
@@ -9,11 +9,11 @@ Este é o único painel processado incluído no repositório. As
 (hiato do produto) é NA para todo o ano de 2024 — o PIB de 2024
 ainda não foi publicado pelo IBGE (ver nota 1). Como yvar entra
 em todos os modelos de estimação, a amostra efetiva usada nas
-regressões é 2004–2023 (N=500), não 2002–2024.
+regressões é 2004–2023 (N=500).
 
 IDENTIFICAÇÃO
   uf               Sigla da unidade federativa (2 letras)
-  year             Ano (2002–2024)
+  year             Ano (2002–2023)
 
 RATIOS FISCAIS (adimensionais) — Fonte: STN/SICONFI
   dcl_sobre_rcl_ext       Dívida Consolidada Líquida / RCL
