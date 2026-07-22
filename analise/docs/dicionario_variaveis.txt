@@ -1,15 +1,16 @@
 =========================================================
 DICIONÁRIO DE VARIÁVEIS — data/processed/panel_slim.csv
-Painel: 25 UFs × 22 anos 
+Painel: 25 UFs × 22 anos (2002–2023) = 550 obs
 (excluindo AP e TO — sem contrato Lei 9.496/97)
 =========================================================
 
 Este é o único painel processado incluído no repositório. As
-575 observações brutas cobrem 2002–2024, mas a variável yvar
-(hiato do produto) é NA para todo o ano de 2024 — o PIB de 2024
-ainda não foi publicado pelo IBGE (ver nota 1). Como yvar entra
-em todos os modelos de estimação, a amostra efetiva usada nas
-regressões é 2004–2023 (N=500).
+linhas de 2024 foram removidas do arquivo: a variável yvar
+(hiato do produto) seria NA para todo o ano de 2024 — o PIB de
+2024 ainda não foi publicado pelo IBGE (ver nota 1) — então
+essas observações nunca entram em nenhum modelo de estimação.
+A amostra efetiva usada nas regressões é 2004–2023 (N=500),
+mesmo já sem 2024 nas 550 obs brutas.
 
 IDENTIFICAÇÃO
   uf               Sigla da unidade federativa (2 letras)
@@ -23,7 +24,7 @@ RATIOS FISCAIS (adimensionais) — Fonte: STN/SICONFI
 CRESCIMENTO / CICLO
   crescimento_pib_pct  Taxa de crescimento real do PIB estadual (%)
   yvar                 Hiato do produto — desvio log(PIB) do trend
-                        HP (lambda=100); NA em 2024 (nota 1)
+                        HP (lambda=100)
 
 VARIÁVEL DE IDENTIFICAÇÃO — Lei 9.496/97
   teto             Teto de comprometimento da RCL (12, 13 ou 15%)
@@ -41,9 +42,10 @@ VARIÁVEIS DERIVADAS PARA ESTIMAÇÃO
 NOTAS METODOLÓGICAS
 =========================================================
 1. PIB: IBGE publica Contas Regionais com defasagem de ~2 anos.
-   O ano de 2024 tem pib_nominal_mil e yvar = NA até a publicação
-   oficial, o que remove automaticamente todas as observações de
-   2024 de qualquer modelo que use yvar como regressor.
+   O ano de 2024 teria pib_nominal_mil e yvar = NA até a
+   publicação oficial — por isso suas observações foram
+   removidas do painel (não fariam parte de nenhum modelo que
+   usa yvar como regressor de qualquer forma).
 
 2. encargos_sobre_rcl_ext: 2002–2014 usa especificamente a linha
    "Lei 9.496/97" (soma dos códigos 1.1.1.1.11 e 3.1.1.1.11) do
