@@ -2,7 +2,6 @@
 
 TCC — Bacharelado em Economia, Universidade de Brasília (UnB), 2026
 **Autor:** Pedro Leite Tunholi
-**Orientador:** Prof. Dr. Vander Mendes Lucas
 
 ## Sobre o trabalho
 
